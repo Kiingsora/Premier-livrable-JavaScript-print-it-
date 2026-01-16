@@ -1,3 +1,4 @@
+// Variables 
 const slides = [
   {
     image: "slide1.jpg",
@@ -17,34 +18,40 @@ const slides = [
     tagLine: "Autocollants <span>avec découpe laser sur mesure</span>",
   },
 ];
+const banner = document.getElementById("banner");
 
 let leftArrow = document.querySelector(".leftArrow");
 let rightArrow = document.querySelector(".rightArrow");
+let imgs = document.querySelectorAll(".banner-img");
+let dots = document.querySelector(".dots");
+
+// fonctions et boucles
+
+slides.forEach(slide => {
+  const image = slide.image;
+  const alt = slide.tagLine;
+  
+  let slideShowed = document.createElement("img");
+  slideShowed.setAttribute("src", `../assets/images/slideshow/${image}`)
+  slideShowed.setAttribute("alt", alt);
+  slideShowed.className = "banner-img";
+  // dots.firstChild = "dot_selected" ;
+  // console.log(dots.firstChild);
+  banner.appendChild(slideShowed);
+  
+  let dot = document.createElement("div");
+  dot.className = "dot";
+  dots.appendChild(dot);
+  
+})
+
+// event
 
 leftArrow.addEventListener("click", () => {
-  console.log("fleche gauche");
+  // animation: 0.5s linear 1s infinite alternate slide-in;
+  
 });
 
 rightArrow.addEventListener("click", () => {
   console.log("fleche droite");
 });
-
-let imgs = document.querySelectorAll(".banner-img");
-let dots = document.querySelector(".dots");
-
-const banner = document.getElementById("banner");
-
-
-slides.forEach(slide => {
-  const image = slide.image;
-  const alt = slide.tagLine;
-
-  let slideShowed = document.createElement("img");
-  
-  slideShowed.setAttribute("src", `../assets/images/slideshow/${image}`)
-  slideShowed.setAttribute("alt", alt)
-  slideShowed.className = "banner-img";
-  banner.appendChild(slideShowed);
-
-  
-})
