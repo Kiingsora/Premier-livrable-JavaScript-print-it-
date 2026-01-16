@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Page - Print-it JS</title>
+    <style>
+      .coeur {
+        height: 15rem;
+        width: 15rem;
+        background-color: "red";
+        border: 1px solid red;
+      }
+      #banner {
+        height: 100rem;
+        width: 100rem;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="banner">
+      <button class="left">gauche</button>
+
+      <div class="coeur"></div>
+
+      <button class="right">droite</button>
+    </div>
+    <script>
+
+      let left = document.querySelector(".left");
+      let right = document.querySelector(".right");
+      left.addEventListener("click", () => {
+        console.log("fleche gauche");
+        // animation: 0.5s linear 1s infinite alternate slide-in;
+      });
+
+      right.addEventListener("click", () => {
+        console.log("fleche droite");
+      });
+    </script>
+  </body>
+</html>

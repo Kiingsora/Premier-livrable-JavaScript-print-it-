@@ -294,3 +294,15 @@ footer div {
 		flex: 2;
 	}
 }
+
+.coeur {
+	height: "15rem";
+	width: "15rem";
+	background-color:#CD006B;
+  }
+  
+  #banner {
+	height: "100%";
+	width: "100%";
+  }
+  
