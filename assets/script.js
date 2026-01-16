@@ -31,28 +31,20 @@ rightArrow.addEventListener("click", () => {
 
 let imgs = document.querySelectorAll(".banner-img");
 let dots = document.querySelector(".dots");
-console.log(imgs);
 
 const banner = document.getElementById("banner");
 
-for (let i = 0; i < slides.length; i++) {
 
-  const slide = slides[i];
-  console.log(slides[i]);
+slides.forEach(slide => {
+  const image = slide.image;
+  const alt = slide.tagLine;
+
+  let slideShowed = document.createElement("img");
   
-//   let baliseImg = document.createElement("img");
-//   baliseImg.className = "banner-img";
-//   banner.appendChild(slide);
+  slideShowed.setAttribute("src", `../assets/images/slideshow/${image}`)
+  slideShowed.setAttribute("alt", alt)
+  slideShowed.className = "banner-img";
+  banner.appendChild(slideShowed);
 
-}
-
-// slides.forEach((slide) => {
-// });
-
-// imgs.forEach((img) => {
-//   img = document.createElement("div");
-//   img.className = "dot";
-//   dots.appendChild(img);
-// });
-
-console.log(dots);
+  
+})
