@@ -9,8 +9,9 @@
         height: 15rem;
         width: 15rem;
         background-color: "red";
-        border: 1px solid red;
+        border: 1px solid rgb(255, 0, 251);
       }
+
       #banner {
         height: 100rem;
         width: 100rem;
@@ -27,15 +28,19 @@
       <button class="right">droite</button>
     </div>
     <script>
-
       let left = document.querySelector(".left");
       let right = document.querySelector(".right");
+      let coeur = document.querySelector(".coeur");
+
+      console.log(coeur);
+
       left.addEventListener("click", () => {
         console.log("fleche gauche");
-        // animation: 0.5s linear 1s infinite alternate slide-in;
+        coeur.style.transform = "translateX(-150px)";
       });
-
+      
       right.addEventListener("click", () => {
+        coeur.style.transform = "translateX(150px)";
         console.log("fleche droite");
       });
     </script>

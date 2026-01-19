@@ -42,16 +42,17 @@ slides.forEach(slide => {
   let dot = document.createElement("div");
   dot.className = "dot";
   dots.appendChild(dot);
-  
 })
 
 // event
 
 leftArrow.addEventListener("click", () => {
   // animation: 0.5s linear 1s infinite alternate slide-in;
+  slides.style.transform = "translateX(500px)";
   
 });
 
 rightArrow.addEventListener("click", () => {
-  console.log("fleche droite");
+	console.log("fleche droite");
+	slides.style.transform = "translateX(-500px)";
 });
