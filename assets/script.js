@@ -1,4 +1,4 @@
-// Variables 
+// Variables
 const slides = [
   {
     image: "slide1.jpg",
@@ -22,37 +22,42 @@ const banner = document.getElementById("banner");
 
 let leftArrow = document.querySelector(".leftArrow");
 let rightArrow = document.querySelector(".rightArrow");
-let imgs = document.querySelectorAll(".banner-img");
+let imgs = document.querySelector(".banner-img");
 let dots = document.querySelector(".dots");
-
+const slideElement = [];
 // fonctions et boucles
 
-slides.forEach(slide => {
+slides.forEach((slide, index) => {
   const image = slide.image;
   const alt = slide.tagLine;
-  
+
   let slideShowed = document.createElement("img");
-  slideShowed.setAttribute("src", `../assets/images/slideshow/${image}`)
+  slideShowed.setAttribute("src", `../assets/images/slideshow/${image}`);
   slideShowed.setAttribute("alt", alt);
   slideShowed.className = "banner-img";
+  banner.appendChild(slideShowed);
+  slideElement.push(slideShowed);
+  
   // dots.firstChild = "dot_selected" ;
   // console.log(dots.firstChild);
-  banner.appendChild(slideShowed);
-  
   let dot = document.createElement("div");
   dot.className = "dot";
   dots.appendChild(dot);
-})
+  
+});
+
+console.log(slideElement);
 
 // event
 
 leftArrow.addEventListener("click", () => {
-  // animation: 0.5s linear 1s infinite alternate slide-in;
-  slides.style.transform = "translateX(500px)";
-  
+  slideElement[0].style.transform = "translateX(-1000px)";
+  console.log("fleche gauche");
 });
 
 rightArrow.addEventListener("click", () => {
-	console.log("fleche droite");
-	slides.style.transform = "translateX(-500px)";
+  slideElement[0].style.transform = "translateX(1000px)";
+  console.log("fleche droite");
 });
+
+
