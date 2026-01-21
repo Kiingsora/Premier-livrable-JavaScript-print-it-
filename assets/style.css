@@ -111,10 +111,9 @@ header {
 	min-height: 470px;
 	position: relative;
 }
-
 .banner-img {
 	position: absolute;
-	width: 100%;
+	width: 50%;
 	height: 100%;
 	z-index: -1;
 	object-fit: cover;
@@ -122,8 +121,7 @@ header {
 }
 
 /* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
-
-
+ 
 /* Gestion des fleches du carrousel */
 #banner .arrow {
 	position: absolute;
@@ -140,7 +138,6 @@ header {
 	bottom: 40px;
 	display: flex;
 }
-
 .dot {
 	margin-inline: 5px;
 	width: 13px;
@@ -150,11 +147,9 @@ header {
 	border-radius: 100%;
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);;
 }
-
 .dot_selected {
 	background-color: #fff;
 }
-
 /* Fin du code CSS pour le carousel */
 #banner p {
 	font-family: 'Roboto Slab', sans-serif;
@@ -247,7 +242,6 @@ header {
 #contact article, #contact div {
 	flex:1;
 }
-
 
 #contact .container {
 	flex-direction: row;

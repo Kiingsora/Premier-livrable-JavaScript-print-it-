@@ -22,8 +22,8 @@ const slides = [
 let currentIndex = 0;
 const banner = document.getElementById("banner");
 
-let leftArrow = document.querySelector(".leftArrow");
-let rightArrow = document.querySelector(".rightArrow");
+let leftArrow = document.querySelector(".arrow_left");
+let rightArrow = document.querySelector(".arrow_right");
 let imgs = document.querySelector(".banner-img");
 let dots = document.querySelector(".dots");
 
@@ -46,14 +46,16 @@ slides.forEach((slide) => {
   // console.log(dots.firstChild);
 });
 
-
-
-
 function createDots(){
   let dot = document.createElement("div");
   dot.className = "dot";
   dots.appendChild(dot);
 }
+
+if (slideElement[currentIndex]) {
+  
+}
+
 
 // event
 rightArrow.addEventListener("click", () => {
@@ -62,18 +64,24 @@ currentIndex++
     currentIndex = 0;
   }
   // currentIndex = (currentIndex + 1) % 4 ;
-console.log(currentIndex);
-console.log(slideElement[currentIndex]);
-  slideElement[currentIndex].style.display =   
+
+  console.log(currentIndex);
+  console.log(slideElement[currentIndex]);
+  slideElement[currentIndex].style.display = 'block';
   console.log("fleche droite");
 });
 
+
 leftArrow.addEventListener("click", () => {
-currentIndex--
+  
+  currentIndex--
   if (currentIndex === -1){
     currentIndex = 3;
   }
-    slideElement[currentIndex].style.
-    console.log("fleche gauche");
-  });
+
+  slideElement[currentIndex].style.display = 'block';
+  console.log("fleche gauche");
+  console.log(currentIndex);
+});
+console.log(slideElement[currentIndex]);
    
