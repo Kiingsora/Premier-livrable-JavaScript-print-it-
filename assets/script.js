@@ -18,16 +18,19 @@ const slides = [
     tagLine: "Autocollants <span>avec découpe laser sur mesure</span>",
   },
 ];
+
+let currentIndex = 0;
 const banner = document.getElementById("banner");
 
 let leftArrow = document.querySelector(".leftArrow");
 let rightArrow = document.querySelector(".rightArrow");
 let imgs = document.querySelector(".banner-img");
 let dots = document.querySelector(".dots");
-const slideElement = [];
-// fonctions et boucles
 
-slides.forEach((slide, index) => {
+const slideElement = [];
+
+// fonctions et boucles
+slides.forEach((slide) => {
   const image = slide.image;
   const alt = slide.tagLine;
 
@@ -38,26 +41,39 @@ slides.forEach((slide, index) => {
   banner.appendChild(slideShowed);
   slideElement.push(slideShowed);
   
+  createDots();
   // dots.firstChild = "dot_selected" ;
   // console.log(dots.firstChild);
+});
+
+
+
+
+function createDots(){
   let dot = document.createElement("div");
   dot.className = "dot";
   dots.appendChild(dot);
-  
-});
-
-console.log(slideElement);
+}
 
 // event
-
-leftArrow.addEventListener("click", () => {
-  slideElement[0].style.transform = "translateX(-1000px)";
-  console.log("fleche gauche");
-});
-
 rightArrow.addEventListener("click", () => {
-  slideElement[0].style.transform = "translateX(1000px)";
+currentIndex++
+  if (currentIndex % 4 === 0){
+    currentIndex = 0;
+  }
+  // currentIndex = (currentIndex + 1) % 4 ;
+console.log(currentIndex);
+console.log(slideElement[currentIndex]);
+  slideElement[currentIndex].style.display =   
   console.log("fleche droite");
 });
 
-
+leftArrow.addEventListener("click", () => {
+currentIndex--
+  if (currentIndex === -1){
+    currentIndex = 3;
+  }
+    slideElement[currentIndex].style.
+    console.log("fleche gauche");
+  });
+   
