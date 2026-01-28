@@ -3,7 +3,7 @@ const slides = [
   {
     image: "slide1.jpg",
     tagLine: "Impressions tous formats <span>en boutique et en ligne</span>",
-    alt: "background coloré jaune avec plusieurs dessins"
+    alt: "image représentant une machine imprimant des journaux",
   },
   {
     image: "slide2.jpg",
@@ -18,7 +18,7 @@ const slides = [
   {
     image: "slide4.png",
     tagLine: "Autocollants <span>avec découpe laser sur mesure</span>",
-    alt: "image représentant une machine imprimant des journaux "
+    alt: "background coloré jaune avec plusieurs dessins" 
   },
 ];
 
@@ -37,25 +37,24 @@ const slideElement = [];
 
 slides.forEach((slide) => {
   const image = slide.image;
-  const alt = slide.tagLine;
+  const alt = slide.alt;
+  const tagLine = slide.tagLine;
 
   let slideShowed = document.createElement("img");
   slideShowed.setAttribute("src", `../assets/images/slideshow/${image}`);
   slideShowed.setAttribute("alt", alt);
   slideShowed.className = "banner-img";
-  slideShowed.style.display = "block";
   banner.appendChild(slideShowed);
   slideElement.push(slideShowed);
 
   createDots();
   arrayDots[0].classList.add ("dot_selected");
-
+  slideElement[0].style.display = "block";
 });
 
 function createDots() {
   let dot = document.createElement("div");
   dot.className = "dot";
-  
   arrayDots.push(dot)
   dots.appendChild(dot);
 }
@@ -72,8 +71,8 @@ function updateSlideDisplay() {
   });
 }
 
+ 
 //----------------------- Event
-
 rightArrow.addEventListener("click", () => {
   currentIndex++;
   if (currentIndex % 4 === 0) {
@@ -85,9 +84,9 @@ rightArrow.addEventListener("click", () => {
 leftArrow.addEventListener("click", () => {
   currentIndex--;
   if (currentIndex === -1) {
-    currentIndex = 3;
+    currentIndex = slides.length -1;
   }
-  updateSlideDisplay();
   console.log(slideElement[currentIndex]);
+  updateSlideDisplay();
 });
 
