@@ -29,24 +29,29 @@ let leftArrow = document.querySelector(".arrow_left");
 let rightArrow = document.querySelector(".arrow_right");
 let imgs = document.querySelector(".banner-img");
 let dots = document.querySelector(".dots");
-let arrayDots=[];
+let centralSentence = document.querySelector("#banner p");  
 
+let arrayDots=[];
 const slideElement = [];
+
+console.log(centralSentence);
+
 
 //----------------------- Fonctions and Loop
 
 slides.forEach((slide) => {
   const image = slide.image;
   const alt = slide.alt;
-  const tagLine = slide.tagLine;
+  let tagLine = slide.tagLine;
 
+  
   let slideShowed = document.createElement("img");
   slideShowed.setAttribute("src", `../assets/images/slideshow/${image}`);
   slideShowed.setAttribute("alt", alt);
+  
   slideShowed.className = "banner-img";
   banner.appendChild(slideShowed);
   slideElement.push(slideShowed);
-
   createDots();
   arrayDots[0].classList.add ("dot_selected");
   slideElement[0].style.display = "block";
@@ -70,7 +75,7 @@ function updateSlideDisplay() {
     }
   });
 }
-
+centralSentence.innerHTML = tagLine;
  
 //----------------------- Event
 rightArrow.addEventListener("click", () => {
@@ -86,7 +91,6 @@ leftArrow.addEventListener("click", () => {
   if (currentIndex === -1) {
     currentIndex = slides.length -1;
   }
-  console.log(slideElement[currentIndex]);
   updateSlideDisplay();
 });
 
