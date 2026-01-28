@@ -38,50 +38,47 @@ slides.forEach((slide) => {
   slideShowed.setAttribute("src", `../assets/images/slideshow/${image}`);
   slideShowed.setAttribute("alt", alt);
   slideShowed.className = "banner-img";
+  slideShowed.style.display = "block";
   banner.appendChild(slideShowed);
   slideElement.push(slideShowed);
-  
+
   createDots();
   // dots.firstChild = "dot_selected" ;
   // console.log(dots.firstChild);
 });
 
-function createDots(){
+function createDots() {
   let dot = document.createElement("div");
   dot.className = "dot";
   dots.appendChild(dot);
 }
 
-if (slideElement[currentIndex]) {
-  
-}
-
-
 // event
 rightArrow.addEventListener("click", () => {
-currentIndex++
-  if (currentIndex % 4 === 0){
+  currentIndex++;
+  if (currentIndex % 4 === 0) {
     currentIndex = 0;
   }
-  // currentIndex = (currentIndex + 1) % 4 ;
-
-  console.log(currentIndex);
+  updateSlideDisplay();
   console.log(slideElement[currentIndex]);
-  slideElement[currentIndex].style.display = 'block';
-  console.log("fleche droite");
 });
-
 
 leftArrow.addEventListener("click", () => {
-  
-  currentIndex--
-  if (currentIndex === -1){
+  currentIndex--;
+  if (currentIndex === -1) {
     currentIndex = 3;
   }
-
-  slideElement[currentIndex].style.display = 'block';
-  console.log("fleche gauche");
-  console.log(currentIndex);
+  updateSlideDisplay();
+  console.log(slideElement[currentIndex]);
 });
-console.log(slideElement[currentIndex]);
-   
+
+function updateSlideDisplay() {
+  slideElement.forEach((slide, index) => {
+    if (index === currentIndex) {
+      slide.style.display = "block";
+      dots.classList = "dot_selected";
+    } else {
+      slide.style.display = "none"; // Masque les autres
+    }
+  });
+}
