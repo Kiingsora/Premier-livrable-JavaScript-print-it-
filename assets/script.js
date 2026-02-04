@@ -21,21 +21,16 @@ const slides = [
     alt: "background coloré jaune avec plusieurs dessins" 
   },
 ];
-
 let currentIndex = 0;
 const banner = document.getElementById("banner");
-
 let leftArrow = document.querySelector(".arrow_left");
 let rightArrow = document.querySelector(".arrow_right");
 let imgs = document.querySelector(".banner-img");
 let dots = document.querySelector(".dots");
 let centralSentence = document.querySelector("#banner p");  
-
-let arrayDots=[];
+const arrayDots=[];
 const slideElement = [];
-
-console.log(centralSentence);
-
+const textSlides = [];
 
 //----------------------- Fonctions and Loop
 
@@ -43,15 +38,15 @@ slides.forEach((slide) => {
   const image = slide.image;
   const alt = slide.alt;
   let tagLine = slide.tagLine;
-
   
   let slideShowed = document.createElement("img");
   slideShowed.setAttribute("src", `../assets/images/slideshow/${image}`);
   slideShowed.setAttribute("alt", alt);
-  
   slideShowed.className = "banner-img";
+
   banner.appendChild(slideShowed);
   slideElement.push(slideShowed);
+  textSlides.push(tagLine);
   createDots();
   arrayDots[0].classList.add ("dot_selected");
   slideElement[0].style.display = "block";
@@ -60,7 +55,7 @@ slides.forEach((slide) => {
 function createDots() {
   let dot = document.createElement("div");
   dot.className = "dot";
-  arrayDots.push(dot)
+  arrayDots.push(dot);
   dots.appendChild(dot);
 }
 
@@ -69,13 +64,15 @@ function updateSlideDisplay() {
     if (index === currentIndex) {
       slide.style.display = "block";
       arrayDots[index].classList.add ("dot_selected");
+      textSlides[index].display = 'none';
+      centralSentence.innerHTML = textSlides[index];
     } else {
       slide.style.display = "none"; 
       arrayDots[index].classList.remove ("dot_selected");
+      textSlides[index].display = 'block';
     }
   });
 }
-centralSentence.innerHTML = tagLine;
  
 //----------------------- Event
 rightArrow.addEventListener("click", () => {
