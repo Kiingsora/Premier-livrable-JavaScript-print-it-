@@ -134,12 +134,18 @@ header {
 #banner .arrow_right {
 	right: 10px;
 }
+
+.textDots{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 /* Gestion des points du carrousel */
 .dots {
-	position: absolute;
-	bottom: 40px;
 	display: flex;
 }
+
 .dot {
 	margin-inline: 5px;
 	width: 13px;
@@ -294,15 +300,3 @@ footer div {
 		flex: 2;
 	}
 }
-
-.coeur {
-	height: "15rem";
-	width: "15rem";
-	background-color:#CD006B;
-  }
-  
-  #banner {
-	height: "100%";
-	width: "100%";
-  }
-  
