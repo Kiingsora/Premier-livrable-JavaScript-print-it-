@@ -54,7 +54,6 @@ slides.forEach((slide) => {
   slideElement[0].style.display = "block";
 });
 
-console.log(slideElement);
 function createDots() {
   let dot = document.createElement("div");
   dot.className = "dot";
