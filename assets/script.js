@@ -75,6 +75,7 @@ function updateSlideDisplay() {
 }
  
 //----------------------- Event
+
 rightArrow.addEventListener("click", () => {
   currentIndex++;
   if (currentIndex % 4 === 0) {

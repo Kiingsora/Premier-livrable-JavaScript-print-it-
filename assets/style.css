@@ -104,9 +104,9 @@ header {
 
 #banner {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 	width: 100%;
 	min-height: 470px;
 	position: relative;
@@ -129,20 +129,26 @@ header {
 	position: absolute;
 }
 #banner .arrow_left {
+	margin: 2rem;
 	left: 10px;
 }
 #banner .arrow_right {
+	margin: 2rem;
 	right: 10px;
 }
 
-.textDots{
+.textArrows{
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
 	align-items: center;
 }
 
 /* Gestion des points du carrousel */
 .dots {
+	position: absolute;
+	bottom: 4rem;
 	display: flex;
 }
 
