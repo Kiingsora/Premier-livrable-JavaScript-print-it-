@@ -21,13 +21,15 @@ const slides = [
     alt: "background coloré jaune avec plusieurs dessins" 
   },
 ];
-let currentIndex = 0;
 const banner = document.getElementById("banner");
 let leftArrow = document.querySelector(".arrow_left");
 let rightArrow = document.querySelector(".arrow_right");
 let imgs = document.querySelector(".banner-img");
 let dots = document.querySelector(".dots");
 let centralSentence = document.querySelector("#banner p");  
+
+let currentIndex = 0;
+
 const arrayDots=[];
 const slideElement = [];
 const textSlides = [];
@@ -52,6 +54,7 @@ slides.forEach((slide) => {
   slideElement[0].style.display = "block";
 });
 
+console.log(slideElement);
 function createDots() {
   let dot = document.createElement("div");
   dot.className = "dot";
@@ -64,12 +67,10 @@ function updateSlideDisplay() {
     if (index === currentIndex) {
       slide.style.display = "block";
       arrayDots[index].classList.add ("dot_selected");
-      textSlides[index].display = 'none';
-      centralSentence.innerHTML = textSlides[index];
+      centralSentence.innerHTML = textSlides[index];      
     } else {
       slide.style.display = "none"; 
       arrayDots[index].classList.remove ("dot_selected");
-      textSlides[index].display = 'block';
     }
   });
 }
@@ -78,7 +79,7 @@ function updateSlideDisplay() {
 
 rightArrow.addEventListener("click", () => {
   currentIndex++;
-  if (currentIndex % 4 === 0) {
+  if (currentIndex % slideElement.length === 0) {
     currentIndex = 0;
   }
   updateSlideDisplay();
@@ -87,7 +88,7 @@ rightArrow.addEventListener("click", () => {
 leftArrow.addEventListener("click", () => {
   currentIndex--;
   if (currentIndex === -1) {
-    currentIndex = slides.length -1;
+    currentIndex = slideElement.length -1;
   }
   updateSlideDisplay();
 });
